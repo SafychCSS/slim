@@ -16,4 +16,11 @@ $app->get('/', function ($request, $response) {
 $app->get('/sosamba', function ($request, $response) {
     return $response->write('Volodya SOSAMBA');
 });
+$app->get('/users', function ($request, $response) {
+    return $response->write('GET /users');
+});
+
+$app->post('/users', function ($request, $response) {
+    return $response->write('POST /users');
+});
 $app->run();
