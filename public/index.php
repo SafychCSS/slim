@@ -13,4 +13,7 @@ $app->get('/', function ($request, $response) {
     // Благодаря пакету slim/http этот же код можно записать короче
     // return $response->write('Welcome to Slim!');
 });
+$app->get('/sosamba', function ($request, $response) {
+    return $response->write('Volodya SOSAMBA');
+});
 $app->run();
