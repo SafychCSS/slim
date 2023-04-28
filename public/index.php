@@ -5,6 +5,8 @@ require __DIR__ . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use DI\Container;
 
+$users = ['mike', 'mishel', 'adel', 'keks', 'kamila'];
+
 $container = new Container();
 $container->set('renderer', function () {
     // Параметром передается базовая директория, в которой будут храниться шаблоны
@@ -19,17 +21,9 @@ $app->get('/', function ($request, $response) {
     // Благодаря пакету slim/http этот же код можно записать короче
     // return $response->write('Welcome to Slim!');
 });
-$app->get('/sosamba', function ($request, $response) {
-    return $response->write('Volodya SOSAMBA');
-});
 
 $app->get('/users', function ($request, $response) {
     return $response->write('GET /users');
-});
-
-$app->post('/users', function ($request, $response) {
-    // return $response->write('POST /users');
-    return $response->withStatus(302);
 });
 
 $app->get('/courses/{id}', function ($request, $response, array $args) {
