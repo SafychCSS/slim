@@ -1,0 +1,15 @@
+<form action="/users" method="get">
+    <input type="search" name="term" value="<?= $term ? htmlspecialchars($term) : '' ?>" />
+    <input type="submit" value="Search" />
+</form>
+<?php if ($term && count($filteredUsers)) : ?>
+    <?php foreach ($filteredUsers as $user) : ?>
+        <p><?= $user ?></p>
+    <?php endforeach; ?>
+<?php else : ?>
+
+<?php foreach ($users as $user) : ?>
+<p><?= $user ?></p>
+<?php endforeach; ?>
+
+<?php endif; ?>
