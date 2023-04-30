@@ -38,7 +38,7 @@ $app->get('/users', function ($request, $response) use ($users) {
         'filteredUsers' => $filteredUsers
     ];
     return $this->get('renderer')->render($response, "users/index.phtml", $params);
-});
+})->setName('users');
 
 $app->get('/courses/{id}', function ($request, $response, array $args) {
     $id = $args['id'];
@@ -55,6 +55,6 @@ $app->get('/users/{id}', function ($request, $response, $args) {
     // $this доступен внутри анонимной функции благодаря https://php.net/manual/ru/closure.bindto.php
     // $this в Slim это контейнер зависимостей
     return $this->get('renderer')->render($response, 'users/show.phtml', $params);
-});
+})->setName('user');
 
 $app->run();
